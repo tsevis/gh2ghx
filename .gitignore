@@ -1,0 +1,18 @@
+__pycache__/
+*.py[cod]
+*.swp
+.DS_Store
+
+# Local envs
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+
+# Test/coverage
+.coverage
+.pytest_cache/
+
