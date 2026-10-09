@@ -47,7 +47,7 @@ gh2ghx/
 ## Run (GUI)
 
 ```bash
-cd /Users/tsevis/AI/ClaudeCode/gh2ghx
+cd gh2ghx
 ./run_gh2ghx.sh
 ```
 
