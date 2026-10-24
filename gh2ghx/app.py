@@ -4,11 +4,16 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import logging
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
 from gh2ghx.converter import convert_gh_to_ghx
 from gh2ghx.theme import get_palette, is_macos
+
+logger = logging.getLogger(__name__)
+
+ICON_PATH = Path(__file__).resolve().parent / "assets" / "icons" / "AppIcon-256.png"
 
 
 class Gh2GhxWindow:
@@ -204,7 +209,16 @@ class Gh2GhxWindow:
             self._set_status(f"Partial: {message}", "warn")
 
 
+def _set_app_icon(root: tk.Tk) -> None:
+    """Set the window icon; a missing file costs only the icon."""
+    try:
+        root.iconphoto(True, tk.PhotoImage(master=root, file=str(ICON_PATH)))
+    except (tk.TclError, OSError):
+        logger.warning("Could not load app icon from %s", ICON_PATH)
+
+
 def run() -> None:
     root = tk.Tk()
+    _set_app_icon(root)
     Gh2GhxWindow(root)
     root.mainloop()

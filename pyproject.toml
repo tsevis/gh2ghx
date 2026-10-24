@@ -27,6 +27,9 @@ gh2ghx = "gh2ghx.app:run"
 [tool.setuptools]
 include-package-data = true
 
+[tool.setuptools.package-data]
+gh2ghx = ["assets/icons/*"]
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["gh2ghx*"]
